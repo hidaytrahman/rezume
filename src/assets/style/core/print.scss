@@ -1,0 +1,23 @@
+@media screen {
+    p.bodyText {
+        font-family: verdana, arial, sans-serif;
+    }
+}
+
+@media print {
+    .app-resume-maker {
+        h1 {
+            display: none;
+        }
+        #resume-init {
+            display: block !important;
+         }
+    }
+}
+
+@media screen,
+print {
+    #resume-init {
+        font-size: 10pt;
+    }
+}
