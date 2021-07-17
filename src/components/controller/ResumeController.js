@@ -1,13 +1,17 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useStores } from "../../store";
 
 import "./resumeController.scss"
+import ExperienceController from "./ExperienceController";
 const ResumeController = () => {
 
-    const { resumeStore } = useStores();
+    const { resumeStore} = useStores();
 
     const [avt, setAvt] = useState(resumeStore.resume.personal.avatar);
+
+   
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const fileReadHandler = (e) => {
@@ -33,6 +37,8 @@ const ResumeController = () => {
 
         resumeStore.getResume();
     }
+
+   
 
     return (
         <>
@@ -114,8 +120,6 @@ const ResumeController = () => {
                             </div>
 
 
-
-
                             <div className="row">
                                 <div className="col-sm-6">
                                     <div className="form-group">
@@ -144,7 +148,7 @@ const ResumeController = () => {
                                         {...register("designation", { required: true })} />
                                 </div>
                                 <div className="col-sm-6">
-                                    <label htmlFor="exampleFormControlSelect1">website</label>
+                                    <label htmlFor="exampleFormControlSelect1">Website</label>
                                     <input className="form-control form-control-sm" type="url"
                                         placeholder="website"
                                         {...register("website", { required: true })} />
@@ -153,13 +157,13 @@ const ResumeController = () => {
 
                             <div className="row">
                                 <div className="col-sm-6">
-                                    <label htmlFor="exampleFormControlSelect1">nationality</label>
+                                    <label htmlFor="exampleFormControlSelect1">Nationality</label>
                                     <input className="form-control form-control-sm" type="text"
                                         placeholder="nationality"
                                         {...register("nationality", { required: true })} />
                                 </div>
                                 <div className="col-sm-6">
-                                    <label htmlFor="exampleFormControlSelect1">religion</label>
+                                    <label htmlFor="exampleFormControlSelect1">Religion</label>
                                     <input className="form-control form-control-sm" type="text"
                                         placeholder="religion"
                                         {...register("religion", { required: true })} />
@@ -221,6 +225,8 @@ const ResumeController = () => {
                                         {...register("secondarySkillsLabel", { required: true })} />
                                 </div>
                             </div>
+
+                            <ExperienceController />
                         </div>
                     </div>
                 </form>
