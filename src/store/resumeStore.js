@@ -1,9 +1,9 @@
 import { standard_resume } from "./_proto_resume";
 import { short_resume, test_resume } from "./_proto_short_resume";
-
+import hotdom, {getLocalStorage} from "hotdom";
 class resumeStore {
 
-    resume = standard_resume;
+    resume = getLocalStorage('resume') || standard_resume;
 
     constructor(rootStore) {
         this.rootStore = rootStore;
@@ -56,13 +56,27 @@ class resumeStore {
                
                languages: formData.languages.split(",") || ["arabic"],
                avatar: formData.avatar || "https://assets.codepen.io/421482/internal/avatars/users/default.png?fit=crop&format=auto&height=80&version=1625678511&width=80",
-               designation: formData.designation
+               designation: formData.designation,
+               
+            },
+            skills: {
+                ...this.resume.skills, // copy of existing skills
+                primary: {
+                    value: formData.primarySkills.split(","),
+                    label: formData.primarySkillsLabel
+                },
+                secondary: {
+                    value: formData.secondarySkills.split(","),
+                    label: formData.secondarySkillsLabel
+                }
             }
           }
 
           this.resume = resumeCloned;
           // console.log('newobj ', newobj);
           console.log('resumeCloned ', resumeCloned);
+
+          localStorage.setItem("resume", JSON.stringify(this.resume));
 
     }
 
