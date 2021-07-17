@@ -36,8 +36,6 @@ const ResumeController = () => {
 
     return (
         <>
-            <h1>Resume COntroller</h1>
-
             <hr />
 
             <section className="edit-section container">
@@ -46,7 +44,9 @@ const ResumeController = () => {
 
 
                         <div className="col-sm-6">
-
+                            <div className="row">
+                                <h2>Personal</h2>
+                            </div>
                             <div className="row avatar-wrapper">
                                 <div className="col-sm-6">
 
@@ -61,7 +61,7 @@ const ResumeController = () => {
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
-                                    <img id="blah" className="avatar-preview" src={avt} alt="your image" />
+                                    <img id="blah" className="avatar-preview" src={avt} alt={resumeStore.resume.personal.firstName} />
                                 </div>
                             </div>
 
@@ -176,11 +176,6 @@ const ResumeController = () => {
                                 <div className="col-sm-6"></div>
                             </div>
 
-
-
-
-
-
                             <div className="form-group">
                                 <label htmlFor="exampleFormControlTextarea1">Bio</label>
                                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
@@ -190,6 +185,41 @@ const ResumeController = () => {
                             <div className="form-group">
 
                                 <button className="btn btn-primary" type="submit">Apply</button>
+                            </div>
+                        </div>
+
+                        {/* PROFESSIONAL */}
+                        <div className="col-sm-6">
+                            <h2>Professional</h2>
+
+                            <div className="row">
+                                <div className="col-sm-6">
+                                    <label>Primary Skills</label>
+                                    <input className="form-control form-control-sm" type="text"
+                                        placeholder="eg: account, javascript"
+                                        {...register("primarySkills", { required: true })} />
+                                </div>
+                                <div className="col-sm-6">
+                                    <label>Other Skills</label>
+                                    <input className="form-control form-control-sm" type="text"
+                                        placeholder="eg: skill, skill2"
+                                        {...register("secondarySkills", { required: true })} />
+                                </div>
+                            </div>
+
+                            <div className="row">
+                                <div className="col-sm-6">
+                                    <label>Custom Labels</label>
+                                    <input className="form-control form-control-sm" type="text"
+                                        placeholder="eg: Expertise on"
+                                        {...register("primarySkillsLabel", { required: true })} />
+                                </div>
+                                <div className="col-sm-6">
+                                    <label>Other Skills</label>
+                                    <input className="form-control form-control-sm" type="text"
+                                        placeholder="eg: Familiar With"
+                                        {...register("secondarySkillsLabel", { required: true })} />
+                                </div>
                             </div>
                         </div>
                     </div>
