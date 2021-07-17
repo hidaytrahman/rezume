@@ -56,12 +56,12 @@ const Personal = ({personal, skills}) => {
                     skills.primary &&
                     <>
                         <div className="sub-child-title">
-                            {skills.labels.primary || "Primary"}
+                            {skills.primary.label || "Primary"}
                         </div>
                         <ul className="skills-wrapper">
                             {
-                                skills.primary.length > 0 &&
-                                skills.primary.map((skill, index) => (
+                                skills.primary.value.length > 0 &&
+                                skills.primary.value.map((skill, index) => (
                                     <li key={index}>
                                         {skill}
                                     </li>
@@ -79,12 +79,12 @@ const Personal = ({personal, skills}) => {
                     skills.secondary &&
                     <>
                         <div className="sub-child-title">
-                            {skills.labels.secondary || "Secondary"}
+                            {skills.secondary.label || "Secondary"}
                         </div>
                         <ul className="skills-wrapper">
                             {
-                                skills.secondary.length > 0 &&
-                                skills.secondary.map((skill, index) => (
+                                skills.secondary.value.length > 0 &&
+                                skills.secondary.value.map((skill, index) => (
                                     <li key={index}>
                                         {skill}
                                     </li>

@@ -26,12 +26,14 @@ export const standard_resume = {
         ]
     },
     skills: {
-        labels: {
-            primary: "My primary Skills",
-            secondary: "Familiar With"
+        primary: {
+            value: ["html", "css", "scss"],
+            label: "My primary Skills"
         },
-        primary: ["html", "css", "scss"],
-        secondary: ["bootstrap", "react"],
+        secondary: {
+            value: ["bootstrap", "react"],
+            label: "Familiar With"
+        }
     },
     experience:
     {
