@@ -1,23 +1,20 @@
+import { makeAutoObservable } from "mobx";
 import { standard_resume } from "./_proto_resume";
 import { short_resume, test_resume } from "./_proto_short_resume";
-import  { getLocalStorage } from "hotdom";
+import { getLocalStorage } from "hotdom";
+
 class resumeStore {
 
     resume = getLocalStorage('resume') || standard_resume;
 
-    expList = [];
-
     constructor(rootStore) {
         this.rootStore = rootStore;
+        
+        makeAutoObservable(this, {}, { autoBind: true });
 
-       // this.experienceStore = this.rootStore.experienceStore;
+        this.save();
 
-        console.log(' this.experienceStore ', this.rootStore)
-
-        // save on load
-        //this.save();
-
-        // this.init();
+       
     }
 
     sayHi() {
@@ -30,8 +27,6 @@ class resumeStore {
         this.rootStore.experienceStore.sayHello();
 
         this.expList = this.rootStore.experienceStore.experienceList;
-        
-
     }
 
     save() {
@@ -47,8 +42,8 @@ class resumeStore {
         const resumeCloned = {
             ...this.resume,          //copy everything from this.resume
             personal: {        //override the user property
-                ...this.resume.personal,  //same sane: copy the everything from a.user
-                firstName: formData.firstName,  //override a.user.group
+                ...this.resume.personal,  //same sane: copy the everything from resume.personal
+                firstName: formData.firstName,  //override resume.personal.firstName
                 lastName: formData.lastName,
                 email: formData.email,
                 religion: formData.religion,
@@ -75,31 +70,35 @@ class resumeStore {
                     value: formData.secondarySkills.split(","),
                     label: formData.secondarySkillsLabel
                 },
-            },
-            experience: {
-                ...this.resume.experience, // copy of existing experience
-                list: this.expList,
-                total: 5 // need to calculate
             }
         }
 
         this.resume = resumeCloned;
-        // console.log('newobj ', newobj);
+
         console.log('resumeCloned ', resumeCloned);
 
         localStorage.setItem("resume", JSON.stringify(this.resume));
+    }
 
+    updateExperience(expList) {
+        console.log(' expList ', expList);
+        this.resume.experience.list.push(expList)
+    }
+
+    deleteExperience(index){
+        this.resume.experience.list.splice(index, 1);
+        console.log(' this.resume ', this.resume)
     }
 
     resetResume() {
-
+        // something
     }
 
     downloadAsJson() {
-
+        // something
     }
 
-   
+
 }
 
 export default resumeStore;
