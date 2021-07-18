@@ -8,7 +8,6 @@ const Professional = ({experience}) => {
 
                 <div className="e-company-wrapper">
                     {
-                        experience.list.length > 0 &&
                         experience.list.map((item, index) => (
                             <article key={index} className="e-company-list">
                                 <div className="e-company-list-container">

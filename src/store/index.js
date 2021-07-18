@@ -10,8 +10,8 @@ class RootStore {
 
         // call init method on all child classes
         // use a loop if there are to many classes
-        this.resumeStore.init()
-        this.experienceStore.init()
+        // this.resumeStore.init()
+        // this.experienceStore.init()
     }
 }
 

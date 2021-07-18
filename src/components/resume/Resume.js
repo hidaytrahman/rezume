@@ -31,16 +31,20 @@ const Resume = () => {
         html2pdf(main.current);
     }
 
+    console.log(' experience ', experience);
+
 
 
     return (
         <section id="resume-init" ref={main}>
 
-
             <Personal personal={personal} skills={skills}/>
 
-
-            <Professional experience={experience} />
+            {
+                experience  &&  experience.list.length > 0 &&
+                <Professional experience={experience} />
+            }
+            
 
             {
                 education && education.length > 0 &&
