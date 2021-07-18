@@ -1,12 +1,12 @@
 import { observer } from "mobx-react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useStores } from "../../store";
 
 
 const ExperienceController = () => {
 
-    const { experienceStore } = useStores();
-
+    const { resumeStore } = useStores();
+    // Select inputs
     const inputCompanyName = useRef(null);
     const inputCompanyFrom = useRef(null);
     const inputCompanyTo = useRef(null);
@@ -16,22 +16,27 @@ const ExperienceController = () => {
 
 
     const addExperienceHandler = () => {
-        
-        const _data = {
-            company: inputCompanyName.current.value,
-            from: inputCompanyFrom.current.value,
-            to: inputCompanyTo.current.value,
-            location: inputCompanyLocation.current.value,
-            designation: inputCompanyDesignation.current.value,
-            responsibilities: inputCompanyResponsibilities.current.value
+
+        if (inputCompanyName.current.value !== "" && inputCompanyFrom.current.value !=="") {
+            const _data = {
+                company: inputCompanyName.current.value,
+                from: inputCompanyFrom.current.value,
+                to: inputCompanyTo.current.value,
+                location: inputCompanyLocation.current.value,
+                designation: inputCompanyDesignation.current.value,
+                responsibilities: inputCompanyResponsibilities.current.value
+            }
+
+            resumeStore.updateExperience(_data);
+        } else {
+            alert("Few fields are mandatory");
         }
 
-        console.log(' _data ', _data)
-        experienceStore.addExperience(_data);
+
     }
 
     const deleteHandler = (index) => {
-        experienceStore.deleteExperience(index);
+        resumeStore.deleteExperience(index);
     }
 
     return (
@@ -76,14 +81,14 @@ const ExperienceController = () => {
                         <textarea className="form-control form-control-sm"
                             ref={inputCompanyResponsibilities}></textarea>
 
-                        <button type="button"  className="btn btn-success" onClick={addExperienceHandler}>Add</button>
+                        <button type="button" className="btn btn-success" onClick={addExperienceHandler}>Add</button>
                     </div>
                 </div>
 
                 <ul className="list-group">
                     {
-                        experienceStore.experienceList &&
-                        experienceStore.experienceList.map((exp, i) => (
+                        resumeStore.resume.experience.list &&
+                        resumeStore.resume.experience.list.map((exp, i) => (
                             <li className="list-group-item" key={i}>
                                 <div>
                                     <div className="row company-heading">
@@ -106,8 +111,8 @@ const ExperienceController = () => {
                                         <strong>Responsibilities: </strong>{exp.responsibilities}
                                     </div>
 
-                                    <button type="button" className="btn btn-danger" 
-                                    onClick={() => deleteHandler(i)}>Delete</button>
+                                    <button type="button" className="btn btn-danger"
+                                        onClick={() => deleteHandler(i)}>Delete</button>
                                 </div>
                             </li>
                         ))

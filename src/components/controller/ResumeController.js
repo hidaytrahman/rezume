@@ -1,16 +1,18 @@
+import { observer } from "mobx-react";
 import { useForm } from "react-hook-form";
 import { useState, useRef } from "react";
 import { useStores } from "../../store";
 
 import "./resumeController.scss"
 import ExperienceController from "./ExperienceController";
+
 const ResumeController = () => {
 
-    const { resumeStore} = useStores();
+    const { resumeStore } = useStores();
 
     const [avt, setAvt] = useState(resumeStore.resume.personal.avatar);
 
-   
+
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
@@ -38,7 +40,7 @@ const ResumeController = () => {
         resumeStore.getResume();
     }
 
-   
+
 
     return (
         <>
@@ -187,7 +189,6 @@ const ResumeController = () => {
                             </div>
 
                             <div className="form-group">
-
                                 <button className="btn btn-primary" type="submit">Apply</button>
                             </div>
                         </div>
@@ -226,7 +227,13 @@ const ResumeController = () => {
                                 </div>
                             </div>
 
-                            <ExperienceController />
+
+                        </div>
+                    </div>
+
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <ExperienceController resumeStore={resumeStore} />
                         </div>
                     </div>
                 </form>
@@ -238,4 +245,4 @@ const ResumeController = () => {
     )
 }
 
-export default ResumeController;
+export default observer(ResumeController);
