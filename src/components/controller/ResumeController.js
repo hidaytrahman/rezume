@@ -12,7 +12,7 @@ const ResumeController = () => {
     const { resumeStore } = useStores();
 
     const [avt, setAvt] = useState(resumeStore.resume.personal.avatar);
-
+    const [message, setMessage] = useState("");
 
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -39,6 +39,8 @@ const ResumeController = () => {
         console.log(data);
 
         resumeStore.getResume();
+
+        setMessage("Resume data has been store and can be checked in the view");
     }
 
 
@@ -48,13 +50,18 @@ const ResumeController = () => {
             <hr />
 
             <section className="edit-section container">
+                {
+                    message &&
+                    <div className="alert alert-success">{message}</div>
+                }
+
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row">
 
 
                         <div className="col-sm-6">
                             <div className="row">
-                                <h2>Personal</h2>
+                                {/* <h2>Personal</h2> */}
                             </div>
                             <div className="row avatar-wrapper">
                                 <div className="col-sm-6">
@@ -135,11 +142,57 @@ const ResumeController = () => {
                                         </select>
                                     </div>
                                 </div>
+
+                            </div>
+
+
+                            <div className="row">
+
                                 <div className="col-sm-6">
-                                    <label htmlFor="exampleFormControlSelect1">Address</label>
+                                    <label htmlFor="exampleFormControlSelect1">Country</label>
+                                    <input className="form-control form-control-sm" type="text"
+                                        placeholder="Country"
+                                        {...register("address", { required: true })} />
+                                </div>
+                                <div className="col-sm-6">
+                                <label htmlFor="exampleFormControlSelect1">Address</label>
                                     <input className="form-control form-control-sm" type="text"
                                         placeholder="address"
                                         {...register("address", { required: true })} />
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div className="row">
+                                <div className="col-sm-6"></div>
+                                <div className="col-sm-6"></div>
+                            </div>
+
+                            <div className="row">
+                                <div className="col-sm-6"></div>
+                                <div className="col-sm-6"></div>
+                            </div>
+
+                        </div>
+
+                        {/* PROFESSIONAL */}
+                        <div className="col-sm-6">
+
+                            <div className="row">
+                                <div className="col-sm-6">
+                                    <label htmlFor="exampleFormControlSelect1">Nationality</label>
+                                    <input className="form-control form-control-sm" type="text"
+                                        placeholder="nationality"
+                                        {...register("nationality", { required: true })} />
+                                </div>
+                                <div className="col-sm-6">
+                                    <label htmlFor="exampleFormControlSelect1">Religion</label>
+                                    <input className="form-control form-control-sm" type="text"
+                                        placeholder="religion"
+                                        {...register("religion", { required: true })} />
                                 </div>
                             </div>
 
@@ -158,45 +211,13 @@ const ResumeController = () => {
                                 </div>
                             </div>
 
-                            <div className="row">
-                                <div className="col-sm-6">
-                                    <label htmlFor="exampleFormControlSelect1">Nationality</label>
-                                    <input className="form-control form-control-sm" type="text"
-                                        placeholder="nationality"
-                                        {...register("nationality", { required: true })} />
-                                </div>
-                                <div className="col-sm-6">
-                                    <label htmlFor="exampleFormControlSelect1">Religion</label>
-                                    <input className="form-control form-control-sm" type="text"
-                                        placeholder="religion"
-                                        {...register("religion", { required: true })} />
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <div className="col-sm-6"></div>
-                                <div className="col-sm-6"></div>
-                            </div>
-
-                            <div className="row">
-                                <div className="col-sm-6"></div>
-                                <div className="col-sm-6"></div>
-                            </div>
-
                             <div className="form-group">
                                 <label htmlFor="exampleFormControlTextarea1">Bio</label>
                                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
                                     {...register("bio")}></textarea>
                             </div>
 
-                            <div className="form-group">
-                                <button className="btn btn-primary" type="submit">Apply</button>
-                            </div>
-                        </div>
-
-                        {/* PROFESSIONAL */}
-                        <div className="col-sm-6">
-                            <h2>Professional</h2>
+                            {/* <h2>Professional</h2> */}
 
                             <div className="row">
                                 <div className="col-sm-6">
@@ -232,6 +253,8 @@ const ResumeController = () => {
                         </div>
                     </div>
 
+
+
                     <div className="row">
                         <div className="col-sm-6">
                             <ExperienceController resumeStore={resumeStore} />
@@ -240,6 +263,10 @@ const ResumeController = () => {
                         <div className="col-sm-6">
                             <EducationController />
                         </div>
+                    </div>
+
+                    <div className="form-group">
+                        <button className="btn btn-primary btn-block" type="submit">Apply</button>
                     </div>
                 </form>
 
