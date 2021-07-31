@@ -6,6 +6,7 @@ import { useStores } from "../../store";
 const ExperienceController = () => {
 
     const { resumeStore } = useStores();
+
     // Select inputs
     const inputCompanyName = useRef(null);
     const inputCompanyFrom = useRef(null);
@@ -31,7 +32,6 @@ const ExperienceController = () => {
         } else {
             alert("Few fields are mandatory");
         }
-
 
     }
 

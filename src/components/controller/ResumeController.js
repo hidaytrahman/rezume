@@ -5,6 +5,7 @@ import { useStores } from "../../store";
 
 import "./resumeController.scss"
 import ExperienceController from "./ExperienceController";
+import EducationController from "./EducationController";
 
 const ResumeController = () => {
 
@@ -234,6 +235,10 @@ const ResumeController = () => {
                     <div className="row">
                         <div className="col-sm-6">
                             <ExperienceController resumeStore={resumeStore} />
+                        </div>
+
+                        <div className="col-sm-6">
+                            <EducationController />
                         </div>
                     </div>
                 </form>

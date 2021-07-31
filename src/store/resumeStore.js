@@ -80,6 +80,16 @@ class resumeStore {
         localStorage.setItem("resume", JSON.stringify(this.resume));
     }
 
+    updateEducation(eduData) {
+        console.log(' eduData ', eduData);
+        this.resume.education.push(eduData)
+    }
+
+    deleteEducation(index){
+        this.resume.education.splice(index, 1);
+        console.log(' this.resume ', this.resume)
+    }
+
     updateExperience(expList) {
         console.log(' expList ', expList);
         this.resume.experience.list.push(expList)
