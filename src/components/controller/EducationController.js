@@ -1,5 +1,6 @@
 import { observer } from "mobx-react";
 import { useRef } from "react";
+import { getYears } from "../../core/utils";
 import { useStores } from "../../store";
 
 
@@ -12,7 +13,6 @@ const EducationController = () => {
     const inputCourses = useRef(null);
     const inputPassingDate = useRef(null);
     const inputGrade = useRef(null);
-
 
     const addHandler = () => {
 
@@ -53,14 +53,18 @@ const EducationController = () => {
                             ref={inputCourses}
                             placeholder="Degree / Course" />
 
+
+                        <label>Select Passing Year</label>
+                        <select
+                            ref={inputPassingDate}>
+                            {
+                                getYears(1970).map((year, yearIndex) => (
+                                    <option value={year} key={yearIndex}>{year}</option>
+                                ))
+                            }
+                        </select>
+
                         <input
-                            className="form-control form-control-sm"
-                            type="date"
-                            ref={inputPassingDate} />
-
-
-
-                        <input 
                             className="form-control form-control-sm"
                             type="text"
                             ref={inputGrade}
@@ -88,7 +92,7 @@ const EducationController = () => {
                                         </div>
 
                                         <div className="col-sm-3 e-company-list-details-company-duration">
-                                          {edu.passingYear} / <small>  {edu.percentage} </small>
+                                            {edu.passingYear} / <small>  {edu.percentage} </small>
                                         </div>
                                     </div>
 
