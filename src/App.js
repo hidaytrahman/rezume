@@ -15,6 +15,8 @@ const App = () => {
 
       <button onClick={() => setView('view') }>View</button>
 
+      <br />
+      <br />
       {
         view === 'edit' ?
           <ResumeController />
