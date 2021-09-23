@@ -1,5 +1,5 @@
 # rapid resume
-Keeping track of your expenses is an important part of managing your overall finances.
+One Click Resume
 
 It's free!
 
@@ -12,7 +12,7 @@ It's free!
 
 
 ## Contributing
-Create an [issue](https://github.com/hidaytrahman/expenseSpy/issues/new) if you find a bug or have a suggestion or question. 
+Create an [issue](https://github.com/hidaytrahman/rezume/issues/new) if you find a bug or have a suggestion or question. 
 
 If you want to develop this project:
 
