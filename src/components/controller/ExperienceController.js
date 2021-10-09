@@ -1,11 +1,12 @@
 import { useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { resumeActions } from "../../store/slice/resumeSlice";
 
 
 const ExperienceController = () => {
 
     const resumeStore = useSelector(state => state.resume);
-
+    const dispatch = useDispatch();
 
     // Select inputs
     const inputCompanyName = useRef(null);
@@ -28,7 +29,7 @@ const ExperienceController = () => {
                 responsibilities: inputCompanyResponsibilities.current.value
             }
 
-            resumeStore.updateExperience(_data);
+            dispatch(resumeActions.updateExperience(_data));
         } else {
             alert("Few fields are mandatory");
         }
@@ -36,7 +37,7 @@ const ExperienceController = () => {
     }
 
     const deleteHandler = (index) => {
-        resumeStore.deleteExperience(index);
+        dispatch(resumeActions.deleteExperience(index));
     }
 
     return (

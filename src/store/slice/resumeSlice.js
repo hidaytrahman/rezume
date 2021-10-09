@@ -66,32 +66,21 @@ const resumeSlice = createSlice({
             console.log(' eduData ', action.payload);
             state.resume.education.push(action.payload)
         },
-
         deleteEducation(state, action) {
             state.resume.education.splice(action.payload, 1);
         },
-
-        updateExperience(expList) {
-            console.log(' expList ', expList);
-            this.resume.experience.list.push(expList)
+        updateExperience(state, action) {
+            state.resume.experience.list.push(action.payload)
         },
-
-        deleteExperience(index) {
-            this.resume.experience.list.splice(index, 1);
-            console.log(' this.resume ', this.resume)
-        },
-
-        resetResume() {
+        deleteExperience(state, action) {
+            state.resume.experience.list.splice(action.payload, 1);
+        }, resetResume() {
             // do something
-        },
-
-        downloadAsJson(state) {
+        }, downloadAsJson(state) {
             // Deep clone of resume
             const resumeToDownload = Object.assign({}, state.resume);
-
             // remove avatar
             delete resumeToDownload['personal']['avatar'];
-
             // download 
             saveTemplateAsFile('rezume.json', resumeToDownload);
         }
@@ -100,5 +89,4 @@ const resumeSlice = createSlice({
 });
 
 export const resumeActions = resumeSlice.actions;
-
 export default resumeSlice.reducer;

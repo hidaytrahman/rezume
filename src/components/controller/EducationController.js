@@ -31,7 +31,7 @@ const EducationController = () => {
     }
 
     const deleteHandler = (index) => {
-        dispatch(resumeActions.deleteEducation(index))
+        dispatch(resumeActions.deleteEducation(index));
     }
 
     return (
