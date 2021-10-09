@@ -62,14 +62,13 @@ const resumeSlice = createSlice({
             localStorage.setItem("resume", JSON.stringify(state.resume));
         },
 
-        updateEducation(eduData) {
-            console.log(' eduData ', eduData);
-            this.resume.education.push(eduData)
+        updateEducation(state, action) {
+            console.log(' eduData ', action.payload);
+            state.resume.education.push(action.payload)
         },
 
-        deleteEducation(index) {
-            this.resume.education.splice(index, 1);
-            console.log(' this.resume ', this.resume)
+        deleteEducation(state, action) {
+            state.resume.education.splice(action.payload, 1);
         },
 
         updateExperience(expList) {
