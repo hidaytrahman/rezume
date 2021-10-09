@@ -1,8 +1,6 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { resumeActions } from "store/slice/resumeSlice";
-
-
 const ExperienceController = () => {
 
     const resumeStore = useSelector(state => state.resume);
