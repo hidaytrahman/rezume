@@ -9,11 +9,6 @@ const resumeSlice = createSlice({
         resume: getLocalStorage('resume') || standard_resume
     },
     reducers: {
-        sayHi() {
-            console.log('I am resume store')
-        },
-
-
         save() {
             localStorage.setItem("resume", JSON.stringify(this.resume))
         },
