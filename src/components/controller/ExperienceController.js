@@ -1,11 +1,11 @@
-import { observer } from "mobx-react";
 import { useRef } from "react";
-import { useStores } from "../../store";
+import { useSelector } from "react-redux";
 
 
 const ExperienceController = () => {
 
-    const { resumeStore } = useStores();
+    const resumeStore = useSelector(state => state.resume);
+
 
     // Select inputs
     const inputCompanyName = useRef(null);
@@ -124,4 +124,4 @@ const ExperienceController = () => {
     )
 }
 
-export default observer(ExperienceController);
+export default ExperienceController;

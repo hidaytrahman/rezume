@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useStores } from "../../store";
+// import { useStores } from "../../store";
 import html2pdf from "html2pdf.js";
 
 import Personal from "./Personal";
@@ -7,12 +7,14 @@ import Professional from "./Professional";
 import Education from "./Education";
 import Extra from "./Extra";
 import Me from "./Me";
-import { observer } from "mobx-react";
+import { useSelector } from "react-redux";
 
 
 const Resume = () => {
 
-    const { resumeStore } = useStores();
+   // const { resumeStore } = useStores();
+
+    const resumeStore =  useSelector(state => state.resume);
 
     const { personal, experience, education, skills, extra } = resumeStore.resume;
 
@@ -68,4 +70,4 @@ const Resume = () => {
     )
 }
 
-export default observer(Resume);
+export default Resume;

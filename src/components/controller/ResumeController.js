@@ -1,15 +1,19 @@
-import { observer } from "mobx-react";
 import { useForm } from "react-hook-form";
 import { useState, useRef } from "react";
-import { useStores } from "../../store";
 
 import "./resumeController.scss"
 import ExperienceController from "./ExperienceController";
 import EducationController from "./EducationController";
+import { useDispatch, useSelector } from "react-redux";
+
+import { resumeActions } from "../../store/slice/resumeSlice";
 
 const ResumeController = () => {
 
-    const { resumeStore } = useStores();
+    // const { resumeStore } = useStores();
+    const resumeStore =  useSelector(state => state.resume);
+
+    const dispatch = useDispatch();
 
     const [avt, setAvt] = useState(resumeStore.resume.personal.avatar);
     const [message, setMessage] = useState("");
@@ -34,11 +38,13 @@ const ResumeController = () => {
 
     const onSubmit = data => {
         data.avatar = avt;
-        resumeStore.updateResume(data);
+        //resumeStore.updateResume(data);
+
+        dispatch(resumeActions.updateResume(data))
 
         console.log(data);
 
-        resumeStore.getResume();
+        // resumeStore.getResume();
 
         setMessage("Resume data has been store and can be checked in the view");
     }
@@ -277,4 +283,4 @@ const ResumeController = () => {
     )
 }
 
-export default observer(ResumeController);
+export default ResumeController;
