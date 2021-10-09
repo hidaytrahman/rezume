@@ -18,7 +18,7 @@ const Header = ({ setView, view }) => {
         <div className="resume-controls">
 
             <div className="row">
-                <h1 className="col-sm-4">Resume Maker</h1>
+                <h1 className="col-sm-4">🆁🅴🆉🆄🅼🅴</h1>
 
                 {view !== 'edit' &&
                     <div className="col-sm-8 text-right">

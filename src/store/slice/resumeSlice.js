@@ -6,7 +6,7 @@ import { saveTemplateAsFile } from "../../core/utils";
 const resumeSlice = createSlice({
     name: 'resume',
     initialState: {
-        resume:  getLocalStorage('resume') || standard_resume
+        resume: getLocalStorage('resume') || standard_resume
     },
     reducers: {
         sayHi() {
@@ -41,11 +41,11 @@ const resumeSlice = createSlice({
                     dob: formData.dob,
                     address: formData.address,
                     website: formData.website,
-    
+
                     languages: formData.languages.split(",") || ["arabic"],
                     avatar: formData.avatar || "https://assets.codepen.io/421482/internal/avatars/users/default.png?fit=crop&format=auto&height=80&version=1625678511&width=80",
                     designation: formData.designation,
-    
+
                 },
                 skills: {
                     ...state.resume.skills, // copy of existing skills
@@ -59,11 +59,11 @@ const resumeSlice = createSlice({
                     },
                 }
             }
-    
+
             state.resume = resumeCloned;
-    
+
             console.log('resumeCloned ', resumeCloned);
-    
+
             localStorage.setItem("resume", JSON.stringify(state.resume));
         },
 
@@ -71,28 +71,35 @@ const resumeSlice = createSlice({
             console.log(' eduData ', eduData);
             this.resume.education.push(eduData)
         },
-    
-        deleteEducation(index){
+
+        deleteEducation(index) {
             this.resume.education.splice(index, 1);
             console.log(' this.resume ', this.resume)
         },
-    
+
         updateExperience(expList) {
             console.log(' expList ', expList);
             this.resume.experience.list.push(expList)
         },
-    
-        deleteExperience(index){
+
+        deleteExperience(index) {
             this.resume.experience.list.splice(index, 1);
             console.log(' this.resume ', this.resume)
         },
-    
+
         resetResume() {
             // do something
         },
-    
+
         downloadAsJson(state) {
-            saveTemplateAsFile('rezume.json', state.resume);
+            // Deep clone of resume
+            const resumeToDownload = Object.assign({}, state.resume);
+
+            // remove avatar
+            delete resumeToDownload['personal']['avatar'];
+
+            // download 
+            saveTemplateAsFile('rezume.json', resumeToDownload);
         }
 
     }
