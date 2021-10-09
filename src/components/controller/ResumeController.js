@@ -66,8 +66,8 @@ const ResumeController = () => {
                                 <div className="col-sm-6">
 
                                     <div className="form-group">
-                                        <div class="upload-btn-wrapper">
-                                            <button class="btn">Upload a file</button>
+                                        <div className="upload-btn-wrapper">
+                                            <button className="btn">Upload a file</button>
                                             <input type="file" name="myfile"
                                             accept="image/*"
                                             onInput={(e) => fileReadHandler(e)}
