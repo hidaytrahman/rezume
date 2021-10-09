@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { resumeActions } from "store/slice/resumeSlice";
 
 const ResumeController = () => {
-    const resumeStore =  useSelector(state => state.resume);
+    const resumeStore = useSelector(state => state.resume);
     const dispatch = useDispatch();
 
     const [avt, setAvt] = useState(resumeStore.resume.personal.avatar);
@@ -38,7 +38,7 @@ const ResumeController = () => {
 
         // adding only one mobile number
         data.mobile = [data.mobileNumber];
-        
+
         dispatch(resumeActions.updateResume(data))
         console.log(data);
         setMessage("Resume data has been store and can be checked in the view");
@@ -51,8 +51,8 @@ const ResumeController = () => {
             <hr />
 
             <section className="edit-section container">
-                { message &&
-                    <div className="alert alert-success">{message}</div> }
+                {message &&
+                    <div className="alert alert-success">{message}</div>}
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row">
@@ -66,13 +66,13 @@ const ResumeController = () => {
                                 <div className="col-sm-6">
 
                                     <div className="form-group">
-                                        <label>Photo</label>
-                                        <input
-                                            type="file"
-                                            accept="image/*" className="form-control-file"
-
+                                        <div class="upload-btn-wrapper">
+                                            <button class="btn">Upload a file</button>
+                                            <input type="file" name="myfile"
+                                            accept="image/*"
                                             onInput={(e) => fileReadHandler(e)}
                                             {...register("avatarFile")} />
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
@@ -162,16 +162,12 @@ const ResumeController = () => {
                                         {...register("address", { required: true })} />
                                 </div>
                                 <div className="col-sm-6">
-                                <label htmlFor="exampleFormControlSelect1">Address</label>
+                                    <label htmlFor="exampleFormControlSelect1">Address</label>
                                     <input className="form-control form-control-sm" type="text"
                                         placeholder="address"
                                         {...register("address", { required: true })} />
                                 </div>
                             </div>
-
-
-
-
 
                             <div className="row">
                                 <div className="col-sm-6"></div>
