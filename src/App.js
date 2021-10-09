@@ -1,30 +1,22 @@
-import { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import './App.scss';
-import ResumeController from './components/controller/ResumeController';
-import Resume from './components/resume/Resume';
-
+const Header = React.lazy(() => import('./components/Header'));
+const Resume = React.lazy(() => import('./components/resume/Resume'));
+const ResumeController = React.lazy(() => import('./components/controller/ResumeController'));
 const App = () => {
-
   const [view, setView] = useState('edit');
 
   return (
     <div className="App">
-      <h1>Resume Maker</h1>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Header view={view} setView={setView} />
 
-      <button onClick={() => setView('edit')}>Edit</button>
-
-      <button onClick={() => setView('view') }>View</button>
-
-      <br />
-      <br />
-      {
-        view === 'edit' ?
+        {view === 'edit' ?
           <ResumeController />
-          : <Resume />
-      }
+          :
+          <Resume />}
 
-
-
+      </Suspense>
     </div>
   );
 }

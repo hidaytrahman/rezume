@@ -9,6 +9,7 @@
         font-weight: 700;
     }
 
+
     .sub-title {
         font-size: 1.1rem;
         font-weight: 600;
@@ -42,8 +43,9 @@
 
             .photo-container {
                 .photo-avatar {
-                    clip-path: circle(46px at center);
-                    max-width: 130px;
+                    clip-path: circle(73px at center);
+                    width: 150px;
+                    height: 150px;
                 }
             }
 

@@ -1,21 +1,22 @@
-import { observer } from "mobx-react";
 import { useForm } from "react-hook-form";
-import { useState, useRef } from "react";
-import { useStores } from "../../store";
+import { useState } from "react";
 
 import "./resumeController.scss"
 import ExperienceController from "./ExperienceController";
 import EducationController from "./EducationController";
+import { useDispatch, useSelector } from "react-redux";
+
+import { resumeActions } from "store/slice/resumeSlice";
 
 const ResumeController = () => {
-
-    const { resumeStore } = useStores();
+    const resumeStore = useSelector(state => state.resume);
+    const dispatch = useDispatch();
 
     const [avt, setAvt] = useState(resumeStore.resume.personal.avatar);
     const [message, setMessage] = useState("");
 
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
 
     const fileReadHandler = (e) => {
         readURI(e); // maybe call this with webworker or async library?
@@ -34,12 +35,12 @@ const ResumeController = () => {
 
     const onSubmit = data => {
         data.avatar = avt;
-        resumeStore.updateResume(data);
 
+        // adding only one mobile number
+        data.mobile = [data.mobileNumber];
+
+        dispatch(resumeActions.updateResume(data))
         console.log(data);
-
-        resumeStore.getResume();
-
         setMessage("Resume data has been store and can be checked in the view");
     }
 
@@ -50,10 +51,8 @@ const ResumeController = () => {
             <hr />
 
             <section className="edit-section container">
-                {
-                    message &&
-                    <div className="alert alert-success">{message}</div>
-                }
+                {message &&
+                    <div className="alert alert-success">{message}</div>}
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row">
@@ -67,17 +66,17 @@ const ResumeController = () => {
                                 <div className="col-sm-6">
 
                                     <div className="form-group">
-                                        <label>Photo</label>
-                                        <input
-                                            type="file"
-                                            accept="image/*" className="form-control-file"
-
+                                        <div class="upload-btn-wrapper">
+                                            <button class="btn">Upload a file</button>
+                                            <input type="file" name="myfile"
+                                            accept="image/*"
                                             onInput={(e) => fileReadHandler(e)}
                                             {...register("avatarFile")} />
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
-                                    <img id="blah" className="avatar-preview" src={avt} alt={resumeStore.resume.personal.firstName} />
+                                    <img id="blah" height="150" width="150" className="avatar-preview" src={avt} alt={resumeStore.resume.personal.firstName} />
                                 </div>
                             </div>
 
@@ -143,6 +142,14 @@ const ResumeController = () => {
                                     </div>
                                 </div>
 
+                                <div className="col-sm-6">
+                                    <div className="form-group">
+                                        <label htmlFor="exampleFormControlInput1">Mobile</label>
+                                        <input type="number" className="form-control form-control-sm" id="exampleFormControlInput1" placeholder="+91 0000"
+                                            {...register("mobileNumber", { required: true })} />
+                                    </div>
+                                </div>
+
                             </div>
 
 
@@ -155,16 +162,12 @@ const ResumeController = () => {
                                         {...register("address", { required: true })} />
                                 </div>
                                 <div className="col-sm-6">
-                                <label htmlFor="exampleFormControlSelect1">Address</label>
+                                    <label htmlFor="exampleFormControlSelect1">Address</label>
                                     <input className="form-control form-control-sm" type="text"
                                         placeholder="address"
                                         {...register("address", { required: true })} />
                                 </div>
                             </div>
-
-
-
-
 
                             <div className="row">
                                 <div className="col-sm-6"></div>
@@ -277,4 +280,4 @@ const ResumeController = () => {
     )
 }
 
-export default observer(ResumeController);
+export default ResumeController;

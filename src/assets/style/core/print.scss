@@ -6,9 +6,16 @@
 
 @media print {
     .app-resume-maker {
-        h1 {
+
+        h1,
+        .resume-controls {
             display: none;
         }
+
+        .no-print {
+            display: none;
+        }
+
         #resume-init {
             display: block !important;
          }

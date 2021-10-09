@@ -1,12 +1,12 @@
-import { observer } from "mobx-react";
 import { useRef } from "react";
-import { getYears } from "../../core/utils";
-import { useStores } from "../../store";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getYears } from "core/utils";
+import { resumeActions } from "store/slice/resumeSlice";
 
 const EducationController = () => {
 
-    const { resumeStore } = useStores();
+    const resumeStore = useSelector(state => state.resume);
+    const dispatch = useDispatch();
 
     // Select inputs
     const inputSchoolName = useRef(null);
@@ -23,8 +23,7 @@ const EducationController = () => {
                 passingYear: inputPassingDate.current.value,
                 percentage: inputGrade.current.value,
             }
-
-            resumeStore.updateEducation(_data);
+            dispatch(resumeActions.updateEducation(_data))
         } else {
             alert("Few fields are mandatory");
         }
@@ -32,7 +31,7 @@ const EducationController = () => {
     }
 
     const deleteHandler = (index) => {
-        resumeStore.deleteEducation(index);
+        dispatch(resumeActions.deleteEducation(index));
     }
 
     return (
@@ -109,4 +108,4 @@ const EducationController = () => {
     )
 }
 
-export default observer(EducationController);
+export default EducationController;
