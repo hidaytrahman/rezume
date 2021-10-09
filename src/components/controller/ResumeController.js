@@ -35,6 +35,10 @@ const ResumeController = () => {
 
     const onSubmit = data => {
         data.avatar = avt;
+
+        // adding only one mobile number
+        data.mobile = [data.mobileNumber];
+        
         dispatch(resumeActions.updateResume(data))
         console.log(data);
         setMessage("Resume data has been store and can be checked in the view");
@@ -72,7 +76,7 @@ const ResumeController = () => {
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
-                                    <img id="blah" className="avatar-preview" src={avt} alt={resumeStore.resume.personal.firstName} />
+                                    <img id="blah" height="150" width="150" className="avatar-preview" src={avt} alt={resumeStore.resume.personal.firstName} />
                                 </div>
                             </div>
 
@@ -135,6 +139,14 @@ const ResumeController = () => {
                                             <option value="Married">Married</option>
                                             <option value="Unmarried">Unmarried</option>
                                         </select>
+                                    </div>
+                                </div>
+
+                                <div className="col-sm-6">
+                                    <div className="form-group">
+                                        <label htmlFor="exampleFormControlInput1">Mobile</label>
+                                        <input type="number" className="form-control form-control-sm" id="exampleFormControlInput1" placeholder="+91 0000"
+                                            {...register("mobileNumber", { required: true })} />
                                     </div>
                                 </div>
 

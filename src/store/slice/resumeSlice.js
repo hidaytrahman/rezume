@@ -32,7 +32,7 @@ const resumeSlice = createSlice({
                     nationality: formData.nationality,
                     maritalStatus: formData.maritalStatus,
                     bio: formData.bio,
-                    mobile: ["123454564"],
+                    mobile: formData.mobile,
                     dob: formData.dob,
                     address: formData.address,
                     website: formData.website,
