@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getLocalStorage } from "hotdom";
 import { standard_resume } from "../_proto_resume";
-
+import { saveTemplateAsFile } from "../../core/utils";
 
 const resumeSlice = createSlice({
     name: 'resume',
@@ -88,11 +88,11 @@ const resumeSlice = createSlice({
         },
     
         resetResume() {
-            // something
+            // do something
         },
     
-        downloadAsJson() {
-            // something
+        downloadAsJson(state) {
+            saveTemplateAsFile('rezume.json', state.resume);
         }
 
     }

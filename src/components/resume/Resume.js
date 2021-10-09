@@ -1,70 +1,33 @@
 import { useRef } from "react";
-// import { useStores } from "../../store";
-import html2pdf from "html2pdf.js";
-
+import { useSelector } from "react-redux";
 import Personal from "./Personal";
 import Professional from "./Professional";
 import Education from "./Education";
 import Extra from "./Extra";
 import Me from "./Me";
-import { useSelector } from "react-redux";
-
 
 const Resume = () => {
 
-   // const { resumeStore } = useStores();
-
-    const resumeStore =  useSelector(state => state.resume);
-
+    const resumeStore = useSelector(state => state.resume);
     const { personal, experience, education, skills, extra } = resumeStore.resume;
-
     const main = useRef();
 
-    const downloadAsPdf = () => {
-        // function addScript(url) {
-        //     var script = document.createElement('script');
-        //     script.type = 'application/javascript';
-        //     script.src = url;
-        //     document.head.appendChild(script);
-        // }
-        // addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js');
-
-        //var element = document.getElementById('element-to-print');
-        html2pdf(main.current);
-    }
-
     console.log(' experience ', experience);
-
-
-
     return (
         <section id="resume-init" ref={main}>
 
-            <Personal personal={personal} skills={skills}/>
+            <Personal personal={personal} skills={skills} />
 
-            {
-                experience  &&  experience.list.length > 0 &&
-                <Professional experience={experience} />
-            }
-            
+            {experience && experience.list.length > 0 &&
+                <Professional experience={experience} />}
 
-            {
-                education && education.length > 0 &&
-                <Education education={education} />
-            }
+            {education && education.length > 0 &&
+                <Education education={education} />}
 
-
-            {/* Extra section start */}
-            {
-                extra && extra.length > 0 &&
-                <Extra extra={extra}/>
-            }
-            {/* Extra section end */}
-
-
+            {extra && extra.length > 0 &&
+                <Extra extra={extra} />}
 
             <Me personal={personal} />
-
 
         </section>
     )
