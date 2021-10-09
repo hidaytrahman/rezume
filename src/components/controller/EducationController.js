@@ -1,12 +1,12 @@
-import { observer } from "mobx-react";
 import { useRef } from "react";
+import { useSelector } from "react-redux";
 import { getYears } from "../../core/utils";
-import { useStores } from "../../store";
 
 
 const EducationController = () => {
 
-    const { resumeStore } = useStores();
+    const resumeStore = useSelector(state => state.resume);
+
 
     // Select inputs
     const inputSchoolName = useRef(null);
@@ -109,4 +109,4 @@ const EducationController = () => {
     )
 }
 
-export default observer(EducationController);
+export default EducationController;

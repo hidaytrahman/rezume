@@ -15,3 +15,25 @@ body {
 
 @import "./view/theme.scss";
 @import "./view/resume.scss";
+
+
+.resume-controls {
+    margin-bottom: 2rem;
+    background: #f7f7f7;
+    padding: 0.5rem 9%;
+    border-radius: 2px 0 119px;
+    /* border-top: 0; */
+    border: 2px solid #f1eded;
+    border-top: 0;
+
+    .download-btn {
+        border: 0;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    label {
+        margin-bottom: inherit;
+        margin-right: 10px;
+    }
+}

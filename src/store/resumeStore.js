@@ -1,4 +1,3 @@
-import { makeAutoObservable } from "mobx";
 import { standard_resume } from "./_proto_resume";
 import { short_resume, test_resume } from "./_proto_short_resume";
 import { getLocalStorage } from "hotdom";
@@ -9,8 +8,7 @@ class resumeStore {
 
     constructor(rootStore) {
         this.rootStore = rootStore;
-        
-        makeAutoObservable(this, {}, { autoBind: true });
+    
 
         this.save();
 
