@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getYears } from "../../core/utils";
-import { resumeActions } from "../../store/slice/resumeSlice";
+import { getYears } from "core/utils";
+import { resumeActions } from "store/slice/resumeSlice";
 
 const EducationController = () => {
 

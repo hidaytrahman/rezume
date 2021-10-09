@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { print } from "../core/utils";
-import { resumeActions } from "../store/slice/resumeSlice";
+import { print } from "core/utils";
+import { resumeActions } from "store/slice/resumeSlice";
 
 const Header = ({ setView, view }) => {
 
@@ -26,12 +26,12 @@ const Header = ({ setView, view }) => {
                             <label>Download as</label>
                             <button className="download-btn no-print mr-2"
                                 onClick={downloadAsPdfHandler}>
-                                PDF <i class="fa fa-print" aria-hidden="true"></i>
+                                PDF <i className="fa fa-print" aria-hidden="true"></i>
                             </button>
 
                             <button className=" download-btn  no-print"
                                 onClick={downloadAsJSONHandler}>
-                                JSON <i class="fa fa-download" aria-hidden="true"></i>
+                                JSON <i className="fa fa-download" aria-hidden="true"></i>
                             </button>
                         </div>
 

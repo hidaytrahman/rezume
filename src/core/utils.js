@@ -17,6 +17,7 @@ export const print = () => {
     window.print();
 }
 
+
 /**
  * 
  * How to use: saveTemplateAsFile("filename.json", myDataObj);

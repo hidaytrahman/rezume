@@ -1,25 +1,22 @@
 import { useForm } from "react-hook-form";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 import "./resumeController.scss"
 import ExperienceController from "./ExperienceController";
 import EducationController from "./EducationController";
 import { useDispatch, useSelector } from "react-redux";
 
-import { resumeActions } from "../../store/slice/resumeSlice";
+import { resumeActions } from "store/slice/resumeSlice";
 
 const ResumeController = () => {
-
-    // const { resumeStore } = useStores();
     const resumeStore =  useSelector(state => state.resume);
-
     const dispatch = useDispatch();
 
     const [avt, setAvt] = useState(resumeStore.resume.personal.avatar);
     const [message, setMessage] = useState("");
 
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
 
     const fileReadHandler = (e) => {
         readURI(e); // maybe call this with webworker or async library?
@@ -38,14 +35,8 @@ const ResumeController = () => {
 
     const onSubmit = data => {
         data.avatar = avt;
-        //resumeStore.updateResume(data);
-
         dispatch(resumeActions.updateResume(data))
-
         console.log(data);
-
-        // resumeStore.getResume();
-
         setMessage("Resume data has been store and can be checked in the view");
     }
 
@@ -56,10 +47,8 @@ const ResumeController = () => {
             <hr />
 
             <section className="edit-section container">
-                {
-                    message &&
-                    <div className="alert alert-success">{message}</div>
-                }
+                { message &&
+                    <div className="alert alert-success">{message}</div> }
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row">

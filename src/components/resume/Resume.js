@@ -12,7 +12,6 @@ const Resume = () => {
     const { personal, experience, education, skills, extra } = resumeStore.resume;
     const main = useRef();
 
-    console.log(' experience ', experience);
     return (
         <section id="resume-init" ref={main}>
 
