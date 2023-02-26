@@ -1,6 +1,6 @@
 {
-  "name": "resume-maker",
-  "version": "0.1.0",
+  "name": "rezume",
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://hidaytrahman.github.io/rezume/",
   "dependencies": {
@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "hotdom": "^1.2.0",
     "html2pdf.js": "^0.9.3",
-    "node-sass": "4.14.1",
+    "node-sass": "^8.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.10.1",
@@ -21,7 +21,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "predeploy": "npm run build", 
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
