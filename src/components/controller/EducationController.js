@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Input, Textarea } from "react-carbonui";
+import { Button, Input } from "react-carbonui";
 import { getYears } from "core/utils";
 import { resumeActions } from "store/slice/resumeSlice";
 
@@ -47,7 +47,7 @@ const EducationController = () => {
               className="form-control form-control-sm mt-2 m-1"
               type="text"
               fullWidth
-              ref={inputSchoolName}
+              innerRef={inputSchoolName}
               placeholder="School / Institute Name"
             />
 
@@ -55,7 +55,7 @@ const EducationController = () => {
               className="form-control form-control-sm m-1"
               type="text"
               fullWidth
-              ref={inputCourses}
+              innerRef={inputCourses}
               placeholder="Degree / Course"
             />
 
@@ -76,7 +76,7 @@ const EducationController = () => {
             <Input
               className="form-control form-control-sm m-1"
               type="text"
-              ref={inputGrade}
+              innerRef={inputGrade}
               fullWidth
               placeholder="Grade / %"
             />
@@ -116,6 +116,7 @@ const EducationController = () => {
                     type="button"
                     variant="danger"
                     size="small"
+                    className="delete-btn"
                     onClick={() => deleteHandler(i)}
                     label="X"
                     title="Delete"

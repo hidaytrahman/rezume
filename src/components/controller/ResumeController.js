@@ -1,13 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Button, Input, Textarea } from "react-carbonui";
+import { useDispatch, useSelector } from "react-redux";
+import { resumeActions } from "store/slice/resumeSlice";
 
-import "./resumeController.scss";
 import ExperienceController from "./ExperienceController";
 import EducationController from "./EducationController";
-import { useDispatch, useSelector } from "react-redux";
-
-import { resumeActions } from "store/slice/resumeSlice";
+import "./resumeController.scss";
 
 const ResumeController = () => {
   const resumeStore = useSelector((state) => state.resume);
@@ -33,6 +32,7 @@ const ResumeController = () => {
   };
 
   const onSubmit = (data) => {
+    console.log("hi ", data);
     data.avatar = avt;
 
     // adding only one mobile number
@@ -55,7 +55,7 @@ const ResumeController = () => {
             <div className="col-sm-6">
               <div className="row">{/* <h2>Personal</h2> */}</div>
               <div className="row avatar-wrapper">
-                <div class="upload-btn-wrapper">
+                <div className="upload-btn-wrapper">
                   <Button variant="secondary" className="btn-upload">
                     Upload an image <br />
                     <small>Max image size 1MB</small>
