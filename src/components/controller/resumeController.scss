@@ -1,46 +1,51 @@
 .edit-section {
+  .avatar-wrapper {
+    position: relative;
 
-    .avatar-wrapper {
-
-        .avatar-preview {
-            max-width: 150px;
-        }
+    .avatar-preview {
+      max-width: 150px;
     }
+  }
 }
 
 fieldset {
-    border: 1px solid #ccc;
-    padding: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
 
-    legend {
-        display: inline-block;
-        width: auto;
-    }
+  legend {
+    display: inline-block;
+    width: auto;
+  }
 }
 
 .upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
+  position: relative;
+  overflow: hidden;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  z-index: 9999;
 
-    .btn {
-        border: 2px solid gray;
-        color: gray;
-        background-color: white;
-        padding: 8px 20px;
-        border-radius: 8px;
-        font-size: 20px;
-        font-weight: bold;
-      }
-
-      input[type=file] {
-        font-size: 100px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        opacity: 0;
-      }
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
   }
-  
 
-  
+  input[type="file"] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+}
+
+.resume-list-container {
+  font-size: 15px;
+  padding: 1rem;
+}
