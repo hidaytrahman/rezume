@@ -47,7 +47,7 @@ const EducationController = () => {
               className="form-control form-control-sm mt-2 m-1"
               type="text"
               fullWidth
-              ref={inputSchoolName}
+              innerRef={inputSchoolName}
               placeholder="School / Institute Name"
             />
 
@@ -55,7 +55,7 @@ const EducationController = () => {
               className="form-control form-control-sm m-1"
               type="text"
               fullWidth
-              ref={inputCourses}
+              innerRef={inputCourses}
               placeholder="Degree / Course"
             />
 
@@ -76,7 +76,7 @@ const EducationController = () => {
             <Input
               className="form-control form-control-sm m-1"
               type="text"
-              ref={inputGrade}
+              innerRef={inputGrade}
               fullWidth
               placeholder="Grade / %"
             />

@@ -55,7 +55,7 @@ const ExperienceController = () => {
               className="form-control form-control-sm mt-2 m-1"
               type="text"
               fullWidth
-              ref={inputCompanyName}
+              innerRef={inputCompanyName}
               placeholder="Company Name"
             />
 
@@ -63,7 +63,7 @@ const ExperienceController = () => {
               id="companyName"
               className="form-control form-control-sm m-1"
               type="date"
-              ref={inputCompanyFrom}
+              innerRef={inputCompanyFrom}
               placeholder="From"
             />
 
@@ -71,7 +71,7 @@ const ExperienceController = () => {
               id="companyName"
               className="form-control form-control-sm m-1"
               type="date"
-              ref={inputCompanyTo}
+              innerRef={inputCompanyTo}
               placeholder="To"
             />
 
@@ -79,7 +79,7 @@ const ExperienceController = () => {
               id="companyName"
               className="form-control form-control-sm m-1"
               type="text"
-              ref={inputCompanyLocation}
+              innerRef={inputCompanyLocation}
               placeholder="Location"
             />
 
@@ -87,13 +87,13 @@ const ExperienceController = () => {
               id="companyName"
               className="form-control form-control-sm m-1"
               type="text"
-              ref={inputCompanyDesignation}
+              innerRef={inputCompanyDesignation}
               placeholder="designation"
             />
 
             <Textarea
               className="form-control form-control-sm m-1"
-              ref={inputCompanyResponsibilities}
+              innerRef={inputCompanyResponsibilities}
             ></Textarea>
 
             <div className="text-right m-2">

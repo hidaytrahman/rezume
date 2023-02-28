@@ -33,6 +33,7 @@ const ResumeController = () => {
   };
 
   const onSubmit = (data) => {
+    console.log("hi ", data);
     data.avatar = avt;
 
     // adding only one mobile number
