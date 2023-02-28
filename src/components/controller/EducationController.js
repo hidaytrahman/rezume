@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Button, Input, Textarea } from "react-carbonui";
 import { getYears } from "core/utils";
 import { resumeActions } from "store/slice/resumeSlice";
 
@@ -36,51 +37,63 @@ const EducationController = () => {
 
   return (
     <fieldset>
-      <legend>Education</legend>
+      <legend>
+        <small>Education</small>
+      </legend>
       <div className="row">
         <div className="col-sm-12">
           <div className="fields-wrapper">
-            <input
-              className="form-control form-control-sm"
+            <Input
+              className="form-control form-control-sm mt-2 m-1"
               type="text"
+              fullWidth
               ref={inputSchoolName}
               placeholder="School / Institute Name"
             />
 
-            <input
-              className="form-control form-control-sm"
+            <Input
+              className="form-control form-control-sm m-1"
               type="text"
+              fullWidth
               ref={inputCourses}
               placeholder="Degree / Course"
             />
 
-            <label>Select Passing Year</label>
-            <select ref={inputPassingDate}>
-              {getYears(1970).map((year, yearIndex) => (
-                <option value={year} key={yearIndex}>
-                  {year}
-                </option>
-              ))}
-            </select>
+            <div className="m-1">
+              <label>
+                <small>Select Passing Year</small>
+                {""}
+              </label>
+              <select ref={inputPassingDate}>
+                {getYears(1970).map((year, yearIndex) => (
+                  <option value={year} key={yearIndex}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-            <input
-              className="form-control form-control-sm"
+            <Input
+              className="form-control form-control-sm m-1"
               type="text"
               ref={inputGrade}
+              fullWidth
               placeholder="Grade / %"
             />
 
-            <button
-              type="button"
-              className="btn btn-success"
-              onClick={addHandler}
-            >
-              Add
-            </button>
+            <div className="text-right mb-4">
+              <Button
+                type="button"
+                variant="secondary"
+                size="small"
+                onClick={addHandler}
+                label="Add"
+              />
+            </div>
           </div>
         </div>
 
-        <ul className="list-group">
+        <ul className="list-group m-4">
           {resumeStore.resume.education &&
             resumeStore.resume.education.map((edu, i) => (
               <li className="list-group-item" key={i}>
@@ -99,13 +112,14 @@ const EducationController = () => {
                     </div>
                   </div>
 
-                  <button
+                  <Button
                     type="button"
-                    className="btn btn-danger"
+                    variant="danger"
+                    size="small"
                     onClick={() => deleteHandler(i)}
-                  >
-                    Delete
-                  </button>
+                    label="X"
+                    title="Delete"
+                  />
                 </div>
               </li>
             ))}
