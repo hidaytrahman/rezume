@@ -1,6 +1,9 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Button, Input, Textarea } from "react-carbonui";
+
 import { resumeActions } from "store/slice/resumeSlice";
+
 const ExperienceController = () => {
   const resumeStore = useSelector((state) => state.resume);
   const dispatch = useDispatch();
@@ -39,75 +42,79 @@ const ExperienceController = () => {
 
   return (
     <fieldset>
-      <legend>Experience</legend>
+      <legend>
+        <small>Experience</small>
+      </legend>
       <div className="row">
         <div className="col-sm-12">
-          <button className="btn btn-secondary form-control-sm">
-            Add New [+]
-          </button>
+          <Button size="small">New +</Button>
 
-          <div className="fields-wrapper">
-            <input
+          <div className="fields-wrapper d-flex flex-column mb-4">
+            <Input
               id="companyName"
-              className="form-control form-control-sm"
+              className="form-control form-control-sm mt-2 m-1"
               type="text"
+              fullWidth
               ref={inputCompanyName}
               placeholder="Company Name"
             />
 
-            <input
+            <Input
               id="companyName"
-              className="form-control form-control-sm"
+              className="form-control form-control-sm m-1"
               type="date"
               ref={inputCompanyFrom}
               placeholder="From"
             />
 
-            <input
+            <Input
               id="companyName"
-              className="form-control form-control-sm"
+              className="form-control form-control-sm m-1"
               type="date"
               ref={inputCompanyTo}
               placeholder="To"
             />
 
-            <input
+            <Input
               id="companyName"
-              className="form-control form-control-sm"
+              className="form-control form-control-sm m-1"
               type="text"
               ref={inputCompanyLocation}
               placeholder="Location"
             />
 
-            <input
+            <Input
               id="companyName"
-              className="form-control form-control-sm"
+              className="form-control form-control-sm m-1"
               type="text"
               ref={inputCompanyDesignation}
               placeholder="designation"
             />
 
-            <textarea
-              className="form-control form-control-sm"
+            <Textarea
+              className="form-control form-control-sm m-1"
               ref={inputCompanyResponsibilities}
-            ></textarea>
+            ></Textarea>
 
-            <button
-              type="button"
-              className="btn btn-success"
-              onClick={addExperienceHandler}
-            >
-              Add
-            </button>
+            <div className="text-right m-2">
+              <Button
+                type="button"
+                variant="secondary"
+                size="small"
+                onClick={addExperienceHandler}
+              >
+                Add
+              </Button>
+            </div>
           </div>
         </div>
 
-        <ul className="list-group">
+        <ul className="list-group resume-list-container">
           {resumeStore.resume.experience.list &&
             resumeStore.resume.experience.list.map((exp, i) => (
               <li className="list-group-item" key={i}>
-                <div>
-                  <div className="row company-heading">
+                <>
+                  <div className="row company-heading ">
                     <div className="col-sm-4 e-company-list-details-company-name">
                       {exp.company} <small>{exp.location}</small>
                     </div>
@@ -126,14 +133,16 @@ const ExperienceController = () => {
                     {exp.responsibilities}
                   </div>
 
-                  <button
-                    type="button"
-                    className="btn btn-danger"
+                  <Button
+                    variant="danger"
+                    size="small"
+                    className="m-2"
                     onClick={() => deleteHandler(i)}
+                    title="Delete"
                   >
-                    Delete
-                  </button>
-                </div>
+                    X
+                  </Button>
+                </>
               </li>
             ))}
         </ul>

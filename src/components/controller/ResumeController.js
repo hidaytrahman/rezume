@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { Button, Input, Textarea } from "react-carbonui";
 
 import "./resumeController.scss";
 import ExperienceController from "./ExperienceController";
@@ -57,8 +58,8 @@ const ResumeController = () => {
                 <div className="col-sm-6">
                   <div className="form-group">
                     <div class="upload-btn-wrapper">
-                      <button class="btn">Upload a file</button>
-                      <input
+                      <Button variant="secondary">Upload a file</Button>
+                      <Input
                         type="file"
                         name="myfile"
                         accept="image/*"
@@ -80,9 +81,9 @@ const ResumeController = () => {
                 </div>
               </div>
 
-              <div className="row">
+              <div className="row mt-4 mb-2">
                 <div className="col-sm-6">
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="First Name"
@@ -90,7 +91,7 @@ const ResumeController = () => {
                   />
                 </div>
                 <div className="col-sm-6">
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="Last Name"
@@ -99,10 +100,9 @@ const ResumeController = () => {
                 </div>
               </div>
 
-              <div className="row">
+              <div className="row mt-2 mb-2">
                 <div className="col-sm-6">
-                  <label htmlFor="exampleFormControlInput1">Father name</label>
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="Father Name"
@@ -110,8 +110,7 @@ const ResumeController = () => {
                   />
                 </div>
                 <div className="col-sm-6">
-                  <label htmlFor="exampleFormControlInput1">Languages</label>
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     defaultValue="english"
                     type="text"
@@ -121,41 +120,20 @@ const ResumeController = () => {
                 </div>
               </div>
 
-              <div className="row">
+              <div className="row mt-2 mb-2">
                 <div className="col-sm-6">
                   <div className="form-group">
-                    <label htmlFor="exampleFormControlInput1">
-                      Email address
-                    </label>
-                    <input
+                    <Input
                       type="email"
                       className="form-control form-control-sm"
                       id="exampleFormControlInput1"
-                      placeholder="name@example.com"
+                      placeholder="email@example.com"
                       {...register("email", { required: true })}
                     />
                   </div>
                 </div>
                 <div className="col-sm-6">
                   <div className="form-group">
-                    <label htmlFor="exampleFormControlInput1">DOB</label>
-                    <input
-                      type="date"
-                      className="form-control form-control-sm"
-                      id="exampleFormControlInput1"
-                      placeholder="name@example.com"
-                      {...register("dob", { required: true })}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label htmlFor="exampleFormControlSelect1">
-                      Marital Status
-                    </label>
                     <select
                       className="form-control form-control-sm"
                       defaultValue="Unmarried"
@@ -167,25 +145,43 @@ const ResumeController = () => {
                     </select>
                   </div>
                 </div>
+              </div>
+
+              <div className="row mt-2 mb-2">
+                <div className="col-sm-6">
+                  <div className="form-group">
+                    <label htmlFor="inputDob">
+                      <small>DOB</small>
+                    </label>
+                    <Input
+                      type="date"
+                      className="form-control form-control-sm"
+                      id="inputDob"
+                      placeholder="DOB"
+                      {...register("dob", { required: true })}
+                    />
+                  </div>
+                </div>
 
                 <div className="col-sm-6">
                   <div className="form-group">
-                    <label htmlFor="exampleFormControlInput1">Mobile</label>
-                    <input
+                    <label htmlFor="exampleFormControlInput1">
+                      <small>Mobile</small>
+                    </label>
+                    <Input
                       type="number"
                       className="form-control form-control-sm"
                       id="exampleFormControlInput1"
-                      placeholder="+91 0000"
+                      placeholder="9100000000"
                       {...register("mobileNumber", { required: true })}
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="row">
+              <div className="row mt-2 mb-4">
                 <div className="col-sm-6">
-                  <label htmlFor="exampleFormControlSelect1">Country</label>
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="Country"
@@ -193,11 +189,10 @@ const ResumeController = () => {
                   />
                 </div>
                 <div className="col-sm-6">
-                  <label htmlFor="exampleFormControlSelect1">Address</label>
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
-                    placeholder="address"
+                    placeholder="Address"
                     {...register("address", { required: true })}
                   />
                 </div>
@@ -216,10 +211,9 @@ const ResumeController = () => {
 
             {/* PROFESSIONAL */}
             <div className="col-sm-6">
-              <div className="row">
+              <div className="row mt-2 mb-2">
                 <div className="col-sm-6">
-                  <label htmlFor="exampleFormControlSelect1">Nationality</label>
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="nationality"
@@ -227,8 +221,7 @@ const ResumeController = () => {
                   />
                 </div>
                 <div className="col-sm-6">
-                  <label htmlFor="exampleFormControlSelect1">Religion</label>
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="religion"
@@ -237,10 +230,9 @@ const ResumeController = () => {
                 </div>
               </div>
 
-              <div className="row">
+              <div className="row mt-2 mb-2">
                 <div className="col-sm-6">
-                  <label htmlFor="exampleFormControlSelect1">Designation</label>
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="designation"
@@ -248,8 +240,7 @@ const ResumeController = () => {
                   />
                 </div>
                 <div className="col-sm-6">
-                  <label htmlFor="exampleFormControlSelect1">Website</label>
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="url"
                     placeholder="website"
@@ -259,21 +250,21 @@ const ResumeController = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="exampleFormControlTextarea1">Bio</label>
-                <textarea
+                <Textarea
+                  fullWidth
                   className="form-control"
-                  id="exampleFormControlTextarea1"
+                  placeholder="Bio"
                   rows="3"
                   {...register("bio")}
-                ></textarea>
+                ></Textarea>
               </div>
 
               {/* <h2>Professional</h2> */}
 
-              <div className="row">
+              <div className="row mt-2 mb-2">
                 <div className="col-sm-6">
                   <label>Primary Skills</label>
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="eg: account, javascript"
@@ -282,7 +273,7 @@ const ResumeController = () => {
                 </div>
                 <div className="col-sm-6">
                   <label>Other Skills</label>
-                  <input
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="eg: skill, skill2"
@@ -293,8 +284,10 @@ const ResumeController = () => {
 
               <div className="row">
                 <div className="col-sm-6">
-                  <label>Custom Labels</label>
-                  <input
+                  <label>
+                    <small>Custom Labels (Primary Skills)</small>
+                  </label>
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="eg: Expertise on"
@@ -302,8 +295,10 @@ const ResumeController = () => {
                   />
                 </div>
                 <div className="col-sm-6">
-                  <label>Other Skills</label>
-                  <input
+                  <label>
+                    <small>Custom Label (Other Skills)</small>
+                  </label>
+                  <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="eg: Familiar With"
@@ -325,9 +320,9 @@ const ResumeController = () => {
           </div>
 
           <div className="form-group">
-            <button className="btn btn-primary btn-block" type="submit">
+            <Button className="btn btn-primary btn-block" type="submit">
               Apply
-            </button>
+            </Button>
           </div>
         </form>
       </section>
