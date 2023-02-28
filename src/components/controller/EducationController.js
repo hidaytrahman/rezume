@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Input, Textarea } from "react-carbonui";
+import { Button, Input } from "react-carbonui";
 import { getYears } from "core/utils";
 import { resumeActions } from "store/slice/resumeSlice";
 
@@ -116,6 +116,7 @@ const EducationController = () => {
                     type="button"
                     variant="danger"
                     size="small"
+                    className="delete-btn"
                     onClick={() => deleteHandler(i)}
                     label="X"
                     title="Delete"

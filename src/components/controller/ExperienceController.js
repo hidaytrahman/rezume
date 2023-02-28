@@ -136,7 +136,7 @@ const ExperienceController = () => {
                   <Button
                     variant="danger"
                     size="small"
-                    className="m-2"
+                    className="m-2 delete-btn"
                     onClick={() => deleteHandler(i)}
                     title="Delete"
                   >

@@ -49,3 +49,13 @@ fieldset {
   font-size: 15px;
   padding: 1rem;
 }
+
+.list-group-item {
+  position: relative;
+
+  .delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
