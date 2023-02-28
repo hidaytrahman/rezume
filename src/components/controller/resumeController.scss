@@ -1,5 +1,7 @@
 .edit-section {
   .avatar-wrapper {
+    position: relative;
+
     .avatar-preview {
       max-width: 150px;
     }
@@ -19,7 +21,10 @@ fieldset {
 .upload-btn-wrapper {
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  z-index: 9999;
 
   .btn {
     border: 2px solid gray;

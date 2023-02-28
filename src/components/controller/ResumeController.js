@@ -55,19 +55,18 @@ const ResumeController = () => {
             <div className="col-sm-6">
               <div className="row">{/* <h2>Personal</h2> */}</div>
               <div className="row avatar-wrapper">
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <div class="upload-btn-wrapper">
-                      <Button variant="secondary">Upload a file</Button>
-                      <Input
-                        type="file"
-                        name="myfile"
-                        accept="image/*"
-                        onInput={(e) => fileReadHandler(e)}
-                        {...register("avatarFile")}
-                      />
-                    </div>
-                  </div>
+                <div class="upload-btn-wrapper">
+                  <Button variant="secondary" className="btn-upload">
+                    Upload an image <br />
+                    <small>Max image size 1MB</small>
+                  </Button>
+                  <Input
+                    type="file"
+                    name="myfile"
+                    accept="image/*"
+                    onInput={(e) => fileReadHandler(e)}
+                    {...register("avatarFile")}
+                  />
                 </div>
                 <div className="col-sm-6">
                   <img
