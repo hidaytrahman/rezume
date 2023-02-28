@@ -1,4 +1,4 @@
-# rapid resume
+# Rezume
 One Click Resume
 
 It's free!
@@ -9,6 +9,7 @@ It's free!
 - Create Resume
 - Print Resume
 - PDF Format
+- JSON Format
 
 
 ## Contributing
@@ -17,9 +18,9 @@ Create an [issue](https://github.com/hidaytrahman/rezume/issues/new) if you find
 If you want to develop this project:
 
 - Fork it!
-- Create your feature branch: git checkout -b my-new-feature
-- Commit your changes: git commit -am 'Add some feature'
-- Push to the branch: git push origin my-new-feature
+- Create your feature branch: `git checkout -b my-new-feature`
+- Commit your changes: `git commit -m 'Add some feature'`
+- Push to the branch: `git push origin my-new-feature`
 - Submit a pull request
 
 ### Give a Star! ⭐️
