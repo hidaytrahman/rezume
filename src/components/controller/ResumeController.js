@@ -52,7 +52,7 @@ const ResumeController = () => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row">
-            <div className="col-sm-6">
+            <div className="col-md-6">
               <div className="row">{/* <h2>Personal</h2> */}</div>
               <div className="row avatar-wrapper">
                 <div className="upload-btn-wrapper">
@@ -65,6 +65,7 @@ const ResumeController = () => {
                     name="myfile"
                     accept="image/*"
                     onInput={(e) => fileReadHandler(e)}
+                    fullWidth
                     {...register("avatarFile")}
                   />
                 </div>
@@ -81,11 +82,12 @@ const ResumeController = () => {
               </div>
 
               <div className="row mt-4 mb-2">
-                <div className="col-sm-6">
+                <div className="col-sm-6 ">
                   <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="First Name"
+                    fullWidth
                     {...register("firstName", { required: true })}
                   />
                 </div>
@@ -94,6 +96,7 @@ const ResumeController = () => {
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="Last Name"
+                    fullWidth
                     {...register("lastName", { required: true })}
                   />
                 </div>
@@ -104,6 +107,7 @@ const ResumeController = () => {
                   <Input
                     className="form-control form-control-sm"
                     type="text"
+                    fullWidth
                     placeholder="Father Name"
                     {...register("fatherName")}
                   />
@@ -113,6 +117,7 @@ const ResumeController = () => {
                     className="form-control form-control-sm"
                     defaultValue="english"
                     type="text"
+                    fullWidth
                     placeholder="hindi, english"
                     {...register("languages", { required: true })}
                   />
@@ -127,6 +132,7 @@ const ResumeController = () => {
                       className="form-control form-control-sm"
                       id="exampleFormControlInput1"
                       placeholder="email@example.com"
+                      fullWidth
                       {...register("email", { required: true })}
                     />
                   </div>
@@ -157,6 +163,7 @@ const ResumeController = () => {
                       className="form-control form-control-sm"
                       id="inputDob"
                       placeholder="DOB"
+                      fullWidth
                       {...register("dob", { required: true })}
                     />
                   </div>
@@ -172,6 +179,7 @@ const ResumeController = () => {
                       className="form-control form-control-sm"
                       id="exampleFormControlInput1"
                       placeholder="9100000000"
+                      fullWidth
                       {...register("mobileNumber", { required: true })}
                     />
                   </div>
@@ -184,6 +192,7 @@ const ResumeController = () => {
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="Country"
+                    fullWidth
                     {...register("address", { required: true })}
                   />
                 </div>
@@ -192,6 +201,7 @@ const ResumeController = () => {
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="Address"
+                    fullWidth
                     {...register("address", { required: true })}
                   />
                 </div>
@@ -209,13 +219,14 @@ const ResumeController = () => {
             </div>
 
             {/* PROFESSIONAL */}
-            <div className="col-sm-6">
+            <div className="col-md-6">
               <div className="row mt-2 mb-2">
                 <div className="col-sm-6">
                   <Input
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="nationality"
+                    fullWidth
                     {...register("nationality", { required: true })}
                   />
                 </div>
@@ -224,6 +235,7 @@ const ResumeController = () => {
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="religion"
+                    fullWidth
                     {...register("religion", { required: true })}
                   />
                 </div>
@@ -235,6 +247,7 @@ const ResumeController = () => {
                     className="form-control form-control-sm"
                     type="text"
                     placeholder="designation"
+                    fullWidth
                     {...register("designation", { required: true })}
                   />
                 </div>
@@ -243,6 +256,7 @@ const ResumeController = () => {
                     className="form-control form-control-sm"
                     type="url"
                     placeholder="website"
+                    fullWidth
                     {...register("website", { required: true })}
                   />
                 </div>
@@ -266,6 +280,7 @@ const ResumeController = () => {
                   <Input
                     className="form-control form-control-sm"
                     type="text"
+                    fullWidth
                     placeholder="eg: account, javascript"
                     {...register("primarySkills", { required: true })}
                   />
@@ -275,6 +290,7 @@ const ResumeController = () => {
                   <Input
                     className="form-control form-control-sm"
                     type="text"
+                    fullWidth
                     placeholder="eg: skill, skill2"
                     {...register("secondarySkills", { required: true })}
                   />
@@ -289,6 +305,7 @@ const ResumeController = () => {
                   <Input
                     className="form-control form-control-sm"
                     type="text"
+                    fullWidth
                     placeholder="eg: Expertise on"
                     {...register("primarySkillsLabel", { required: true })}
                   />
@@ -300,6 +317,7 @@ const ResumeController = () => {
                   <Input
                     className="form-control form-control-sm"
                     type="text"
+                    fullWidth
                     placeholder="eg: Familiar With"
                     {...register("secondarySkillsLabel", { required: true })}
                   />
@@ -309,11 +327,11 @@ const ResumeController = () => {
           </div>
 
           <div className="row">
-            <div className="col-sm-6">
+            <div className="col-md-6">
               <ExperienceController resumeStore={resumeStore} />
             </div>
 
-            <div className="col-sm-6">
+            <div className="col-md-6">
               <EducationController />
             </div>
           </div>
