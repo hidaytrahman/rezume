@@ -41,7 +41,6 @@ const Personal = ({ personal, skills }) => {
           {personal.summary &&
             personal.summary.length > 0 &&
             personal.summary.map((item, index) => <li key={index}>{item}</li>)}
-          <li></li>
         </ul>
       </div>
 
@@ -58,9 +57,8 @@ const Personal = ({ personal, skills }) => {
               <ul className="skills-wrapper">
                 {skills.primary.value.length > 0 &&
                   skills.primary.value.map((skill, index) => (
-                    <li key={index}>{skill}</li>
+                    <li key={index + skill}>{skill}</li>
                   ))}
-                <li></li>
               </ul>
             </>
           )
@@ -78,7 +76,6 @@ const Personal = ({ personal, skills }) => {
                   skills.secondary.value.map((skill, index) => (
                     <li key={index}>{skill}</li>
                   ))}
-                <li></li>
               </ul>
             </>
           )
