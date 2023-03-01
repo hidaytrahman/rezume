@@ -1,0 +1,55 @@
+.landing-wrapper {
+  position: fixed;
+  background: #fffffff5;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .landing-container {
+    position: absolute;
+    background: #fff;
+    height: 300px;
+    width: 500px;
+    border-radius: 8px;
+    padding: 2rem;
+
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+
+    .landing-control {
+      border: 0;
+      font-size: 2rem;
+      height: 162px;
+      padding: 1rem 2rem;
+
+      cursor: pointer;
+      transition: all 0.7s ease;
+
+      -webkit-animation: slide-bck-center 0.45s
+        cubic-bezier(0.47, 0, 0.745, 0.715) both;
+      animation: slide-bck-center 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+
+      &.create-control {
+        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+      }
+
+      &.sample-control {
+        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+      }
+
+      &:hover {
+        background-color: #795548;
+        transition: all 0.7s ease;
+        color: #fff;
+      }
+    }
+  }
+}
