@@ -1,6 +1,6 @@
 {
   "name": "rezume",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "homepage": "https://hidaytrahman.github.io/rezume/",
   "dependencies": {
@@ -17,6 +17,7 @@
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.10.1",
     "react-redux": "^7.2.5",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.1.1"
   },
