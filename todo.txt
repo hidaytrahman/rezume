@@ -4,4 +4,5 @@
 - Autofill default data
 - Get current data
 - Clear Current data
-- 
+- Image Validations - Not more then 1MB
+- Auth and API
