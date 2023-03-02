@@ -1,7 +1,10 @@
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 const Header = () => {
   const history = useHistory();
+  const { pathname } = useLocation();
+
+  const isEditAndViewRoute = pathname === "/view" || pathname === "/create";
 
   return (
     <div className="resume-controls">
@@ -17,12 +20,19 @@ const Header = () => {
         <div className="col-sm-8 text-right"></div>
       </div>
 
-      <button className="tabular-btn" onClick={() => history.push("/create")}>
-        Edit
-      </button>
-      <button className="tabular-btn" onClick={() => history.push("/view")}>
-        View
-      </button>
+      {isEditAndViewRoute && (
+        <>
+          <button
+            className="tabular-btn"
+            onClick={() => history.push("/create")}
+          >
+            Edit
+          </button>
+          <button className="tabular-btn" onClick={() => history.push("/view")}>
+            View
+          </button>
+        </>
+      )}
     </div>
   );
 };
